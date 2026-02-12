@@ -74,10 +74,10 @@ webpack.config.js
 Key Code:
 javascript
 remotes: {
-  technologies: "technologies@http://localhost:7001/remoteEntry.js"
+  technologies: "technologies@http://localhost:4002/remoteEntry.js"
 }
 Remote Application (technologies)
-Port: 7001
+Port: 4002
 Role: Remote (Provider)
 Configuration: 
 webpack.config.js

@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'angularmfe',
     loadChildren: () =>
       loadRemoteModule({
-        remoteEntry: 'http://localhost:7001/remoteEntry.js',
+        remoteEntry: 'http://localhost:4201/remoteEntry.js',
         remoteName: 'angularmfe',
         exposedModule: './Module',
       })
@@ -28,7 +28,7 @@ const routes: Routes = [
     path: 'reactmfe',
     component: MfeWrapperComponent,
     data: {
-      remoteEntry: 'http://localhost:3002/remoteEntry.js',
+      remoteEntry: 'http://localhost:4202/remoteEntry.js',
       remoteName: 'reactmfe',
       exposedModule: './MyComponent',
       componentName: 'default'

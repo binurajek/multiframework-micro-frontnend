@@ -7,7 +7,7 @@ sharedMappings.register(path.join(__dirname, "tsconfig.json"), []);
 module.exports = {
   output: {
     uniqueName: "angularmfe",
-    publicPath: "http://localhost:7001/",
+    publicPath: "http://localhost:4201/",
     scriptType: "text/javascript",
   },
   optimization: {
@@ -19,7 +19,7 @@ module.exports = {
     },
   },
   devServer: {
-    port: 7001,
+    port: 4201,
     historyApiFallback: true,
     liveReload: false,
     hot: false,

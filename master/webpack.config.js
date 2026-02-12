@@ -31,7 +31,7 @@ module.exports = {
     new ModuleFederationPlugin({
       remotes: {
         angularmfe: "angularmfe@http://localhost:4201/remoteEntry.js",
-        reactmfe: "reactmfe@http://localhost:4202/remoteEntry.js",
+        reactmfe: "reactmfe@http://localhost:4202/remoteEntry.js"
       },
       shared: share({
         "@angular/core": {
