@@ -18,7 +18,7 @@ const routes: Routes = [
         remoteName: 'angularmfe',
         exposedModule: './Module',
       })
-        .then((m) => m.Microfrontend1Module)
+        .then((m) => m.ChildMfeModule)
         .catch((err) => {
           console.error('Error loading remote:', err);
           return import('./fallback/fallback.module').then(m => m.FallbackModule);

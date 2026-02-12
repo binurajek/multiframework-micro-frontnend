@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
-    "start:all": "concurrently \"ng serve --port 5001 --open\" \"cd ../angularmfe && npm start\" \"cd ../reactmfe && npm start\""
+    "start:all": "concurrently \"ng serve --port 4200 --open\" \"cd ../angularmfe && npm start\" \"cd ../reactmfe && npm start\""
   },
   "private": true,
   "dependencies": {

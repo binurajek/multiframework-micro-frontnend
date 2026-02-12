@@ -1,0 +1,26 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Angular
+.angular/
+dist/
+tmp/
+out-tsc/
+bazel-out/
+/err.log
+
+# React
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

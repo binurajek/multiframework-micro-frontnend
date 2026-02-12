@@ -19,7 +19,7 @@ module.exports = {
     },
   },
   devServer: {
-    port: 5001,
+    port: 4200,
     historyApiFallback: true,
     liveReload: false,
     hot: false,
@@ -30,8 +30,8 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       remotes: {
-        angularmfe: "angularmfe@http://localhost:7001/remoteEntry.js",
-        reactmfe: "reactmfe@http://localhost:3002/remoteEntry.js",
+        angularmfe: "angularmfe@http://localhost:4201/remoteEntry.js",
+        reactmfe: "reactmfe@http://localhost:4202/remoteEntry.js",
       },
       shared: share({
         "@angular/core": {

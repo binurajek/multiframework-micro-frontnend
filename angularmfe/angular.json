@@ -87,7 +87,7 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 7001,
+						"port": 4201,
 						"extraWebpackConfig": "webpack.config.js"
 					}
 				},

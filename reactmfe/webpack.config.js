@@ -6,14 +6,14 @@ module.exports = {
     entry: "./src/index.js",
     mode: "development",
     devServer: {
-        port: 3002,
+        port: 4202,
         historyApiFallback: false,
         headers: {
             "Access-Control-Allow-Origin": "*",
         },
     },
     output: {
-        publicPath: "http://localhost:3002/",
+        publicPath: "http://localhost:4202/",
     },
     module: {
         rules: [

@@ -4,8 +4,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./microfrontend1/microfrontend1.module').then(
-        (m) => m.Microfrontend1Module
+      import('./childmfe/childmfe.module').then(
+        (m) => m.ChildMfeModule
       ),
     pathMatch: 'full',
   },
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -32,7 +32,7 @@ module.exports = {
       name: "angularmfe",
       filename: "remoteEntry.js",
       exposes: {
-        "./Module": "./src/app/microfrontend1/microfrontend1.module.ts",
+        "./Module": "./src/app/childmfe/childmfe.module.ts",
       },
       shared: share({
         "@angular/core": {
