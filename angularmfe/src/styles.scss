@@ -1,0 +1,65 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: #034b4c;
+    --primary-hover: #046162;
+    --primary-light: #d9f1f1;
+    --bg-main: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --sidebar-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --sidebar-width: 280px;
+    --header-height: 70px;
+    --glass: rgba(255, 255, 255, 0.7);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Outfit', 'Roboto', sans-serif;
+    background-color: transparent;
+    /* Allows shell background to show through */
+}
+
+/* Material Overrides */
+.mat-toolbar.mat-primary {
+    background: var(--primary) !important;
+}
+
+.mat-raised-button.mat-primary,
+.mat-flat-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+    background-color: var(--primary) !important;
+    color: white !important;
+}
+
+.mat-raised-button.mat-primary:hover,
+.mat-flat-button.mat-primary:hover,
+.mat-fab.mat-primary:hover,
+.mat-mini-fab.mat-primary:hover {
+    background-color: var(--primary-hover) !important;
+}
+
+.mat-icon-button.mat-primary,
+.mat-button.mat-primary,
+.mat-stroked-button.mat-primary {
+    color: var(--primary) !important;
+}
+
+.mat-icon-button.mat-primary:hover,
+.mat-button.mat-primary:hover,
+.mat-stroked-button.mat-primary:hover {
+    background-color: var(--primary-light) !important;
+}
+
+.mat-progress-bar.mat-primary .mat-progress-bar-fill::after {
+    background-color: var(--primary) !important;
+}

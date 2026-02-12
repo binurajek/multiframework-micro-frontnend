@@ -1,2 +1,2 @@
-# multiframework-micro-frontnend
-Micro front end architecture using different UI frameworks
+﻿# Micro front end using angular and module federation plugin
+

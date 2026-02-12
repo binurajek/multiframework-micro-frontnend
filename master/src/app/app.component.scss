@@ -1,0 +1,23 @@
+.active {
+    background-color: var(--primary-light) !important;
+    color: var(--primary) !important;
+    mat-icon {
+        color: var(--primary) !important;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 24px;
+        background-color: var(--primary);
+        border-radius: 0 4px 4px 0;
+    }
+}
+:host ::ng-deep {
+    .mat-drawer-inner-container {
+        overflow: hidden !important;
+    }
+}

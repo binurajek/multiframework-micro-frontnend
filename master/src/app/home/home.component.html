@@ -1,0 +1,117 @@
+<div class="space-y-8">
+    <div class="space-y-2">
+        <h2 class="text-3xl font-bold text-slate-800 tracking-tight">Multi-Framework Micro Frontend Architecture</h2>
+        <p class="text-lg text-slate-500 max-w-3xl">
+            This dashboard demonstrates a robust <strong>Micro Frontend (MFE)</strong> implementation using
+            <strong>Module Federation</strong>. It seamlessly integrates independent applications built with different
+            UI frameworks
+            into a single "Shell" environment.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Angular MFE Card -->
+        <div
+            class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" class="w-32 h-32">
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">Angular MFE</h3>
+            <p class="text-slate-500 mb-6">
+                A native Angular micro-frontend. It shares core dependencies (like <code>&#64;angular/core</code>) with
+                the
+                Shell
+                to minimize bundle size while maintaining isolation.
+            </p>
+            <button [routerLink]="['/angularmfe']"
+                class="inline-flex items-center text-primary font-semibold hover:underline">
+                View Angular MFE <mat-icon class="ml-1 text-sm">arrow_forward</mat-icon>
+            </button>
+        </div>
+
+        <!-- React MFE Card -->
+        <div
+            class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <!-- React Logo SVG placeholder or similar icon -->
+                <svg viewBox="0 0 100 100" class="w-32 h-32 text-blue-500 fill-current">
+                    <circle cx="50" cy="50" r="10" />
+                    <g fill="none" stroke="currentColor" stroke-width="2">
+                        <ellipse cx="50" cy="50" rx="40" ry="15" />
+                        <ellipse cx="50" cy="50" rx="40" ry="15" transform="rotate(60 50 50)" />
+                        <ellipse cx="50" cy="50" rx="40" ry="15" transform="rotate(120 50 50)" />
+                    </g>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">React MFE</h3>
+            <p class="text-slate-500 mb-6">
+                A React application integrated into this Angular Shell. We use a generic
+                <code>MfeWrapperComponent</code>
+                to mount the React root and handle its lifecycle events and error states.
+            </p>
+            <button [routerLink]="['/reactmfe']"
+                class="inline-flex items-center text-blue-600 font-semibold hover:underline">
+                View React MFE <mat-icon class="ml-1 text-sm">arrow_forward</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <!-- Architectural Logic & Details -->
+    <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+        <h3 class="text-xl font-bold text-slate-800 mb-4">How It Works</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+            <div class="space-y-4">
+                <div>
+                    <h4 class="font-semibold text-slate-700">1. Module Federation</h4>
+                    <p class="text-slate-500">
+                        Webpack's Module Federation Plugin allows us to load remote modules (Remote Entry files)
+                        at runtime. The Shell doesn't need to know the code at build time.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-700">2. MFE Wrapper Strategy</h4>
+                    <p class="text-slate-500">
+                        For non-Angular remotes (like React or Vue), we use a wrapper component that:
+                        <br>• Loads the remote module dynamically.
+                        <br>• Creates a host element in the DOM.
+                        <br>• Bootstraps the remote framework (e.g., <code>ReactDOM.createRoot</code>).
+                        <br>• Cleanly unmounts it on destruction to prevent memory leaks.
+                    </p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <h4 class="font-semibold text-slate-700">3. Shared Dependencies</h4>
+                    <p class="text-slate-500">
+                        We configure <code>shared</code> libraries in <code>webpack.config.js</code>.
+                        Compatible versions are shared (singleton), preventing us from loading Angular/React multiple
+                        times
+                        if possible, or handling version mismatches gracefully.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-700">4. Fallback & Error Handling</h4>
+                    <p class="text-slate-500">
+                        If a remote is down, our global error handling middleware intercepts the failure
+                        and displays a user-friendly "Retry" interface instead of crashing the application.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Future Plans -->
+    <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6 flex items-start gap-4">
+        <div class="p-3 bg-indigo-100 text-indigo-600 rounded-lg">
+            <mat-icon>timeline</mat-icon>
+        </div>
+        <div>
+            <h4 class="text-lg font-bold text-indigo-900">Upcoming Implementations</h4>
+            <p class="text-indigo-700 mt-1">
+                We are currently expanding this architecture to include a <strong>Vue.js MFE</strong>.
+                The generic wrapper logic has been designed to support Vue 3 with minimal changes, proving the
+                scalability of our polyglot approach.
+            </p>
+        </div>
+    </div>
+</div>
