@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { SidemenuComponent } from "./sidemenu/sidemenu.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +29,9 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatSidenavModule,
     MatListModule,
-    SharedModule
-  ],
+    SharedModule,
+    SidemenuComponent
+],
   providers: [],
   bootstrap: [AppComponent]
 })

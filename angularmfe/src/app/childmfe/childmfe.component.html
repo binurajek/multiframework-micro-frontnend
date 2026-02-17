@@ -1,30 +1,8 @@
 <div class="space-y-10 animate-in fade-in slide-in-from-top-4 duration-700 font-outfit">
     <!-- Interactive Header -->
-    <header class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div class="space-y-2">
-            <div
-                class="inline-flex items-center gap-2 bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-red-100">
-                <span class="relative flex h-2 w-2">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                </span>
-                Angular Core
-            </div>
-            <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight">Modern Features</h2>
-            <p class="text-slate-500 text-lg max-w-2xl">Exploring the cutting-edge capabilities of Angular 18+.
-                This module uses standalone components and latest patterns.</p>
-        </div>
-        <div class="flex items-center gap-3">
-            <button mat-stroked-button class="!rounded-xl !py-6 !px-8">
-                <mat-icon class="mr-2">filter_list</mat-icon>
-                All Categories
-            </button>
-            <button mat-flat-button color="primary" class="!rounded-xl !py-6 !px-8 shadow-lg shadow-primary/10">
-                <mat-icon class="mr-2">add</mat-icon>
-                Suggest Tech
-            </button>
-        </div>
+    <header class="mb-10 text-center">
+        <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Angular Modern Features</h2>
+        <p class="text-slate-500 text-lg">Exploring the latest innovations in the Angular ecosystem</p>
     </header>
     <!-- Technology Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -57,37 +35,4 @@
             </div>
         </mat-card>
     </div>
-    <!-- Modern Integrated Footer Card -->
-    <mat-card class="!rounded-[3rem] !p-0 border-0 shadow-2xl overflow-hidden bg-slate-900">
-        <div class="grid md:grid-cols-2">
-            <div class="p-12 space-y-6 relative">
-                <div
-                    class="absolute left-0 top-0 w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-transparent">
-                </div>
-                <div class="relative z-10">
-                    <mat-icon class="text-primary-light !w-12 !h-12 text-[48px] mb-4">hub</mat-icon>
-                    <h3 class="text-3xl font-extrabold text-white">Scale your architecture</h3>
-                    <p class="text-slate-400 text-lg leading-relaxed">This micro-app is powered by Module Federation.
-                        You can add more technical categories by simply deploying new autonomous remotes.</p>
-                    <div class="flex gap-4 pt-6">
-                        <button mat-flat-button color="primary" class="!rounded-xl !py-6 !px-10">Get Started</button>
-                        <button mat-stroked-button class="!text-white !border-slate-700 !rounded-xl !py-6 !px-10">View
-                            Docs</button>
-                    </div>
-                </div>
-            </div>
-            <div class="hidden md:flex items-center justify-center p-12 bg-white/5 relative group">
-                <div
-                    class="absolute inset-0 bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-all duration-700">
-                </div>
-                <div class="text-sm font-mono text-primary-light relative z-10 space-y-2 opacity-60">
-                    <p>> loading micro-bundles...</p>
-                    <p>> mapping virtual modules...</p>
-                    <p>> federation handshake successful.</p>
-                    <p>> state: synchronized</p>
-                    <span class="inline-block w-2 h-4 bg-primary animate-pulse"></span>
-                </div>
-            </div>
-        </div>
-    </mat-card>
 </div>

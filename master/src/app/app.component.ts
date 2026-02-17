@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { MatSidenav } from '@angular/material/sidenav';
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
 
 @Component({
   selector: 'app-root',
@@ -9,25 +8,12 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent {
   title = 'shell';
-  @ViewChild(MatSidenav) sidenav!: MatSidenav;
-  isMobile = true;
-  isCollapsed = true;
+  @ViewChild(SidemenuComponent) sidemenu!: SidemenuComponent;
 
-  constructor(private observer: BreakpointObserver) { }
-
-  ngOnInit() {
-    this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
-      this.isMobile = screenSize.matches;
-    });
-  }
+  constructor() { }
 
   toggleMenu() {
-    this.sidenav.toggle();
-  }
-
-  closeMobileMenu() {
-    if (this.isMobile) {
-      this.sidenav.close();
-    }
+    this.sidemenu.toggle();
   }
 }
+
