@@ -1,62 +1,65 @@
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const path = require('path');
 
 module.exports = {
-    entry: "./src/index.js",
-    mode: "development",
-    devServer: {
-        port: 4202,
-        historyApiFallback: false,
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-        },
-    },
+    entry: './src/index.js',
+    mode: 'development',
     output: {
-        publicPath: "http://localhost:4202/",
+        publicPath: 'auto',
+        uniqueName: 'reactmfe',
+        crossOriginLoading: 'anonymous',
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'public'),
+        },
+        port: 4202,
+        historyApiFallback: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            "@babel/preset-env",
-                            ["@babel/preset-react", { runtime: "automatic" }],
-                        ],
-                    },
+                options: {
+                    presets: [
+                        '@babel/preset-env',
+                        ['@babel/preset-react', { runtime: 'automatic' }],
+                    ],
                 },
             },
             {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: "asset/resource",
+                test: /\.svg$/,
+                type: 'asset/resource',
             },
         ],
     },
-    resolve: {
-        extensions: [".js", ".jsx"],
-    },
     plugins: [
         new ModuleFederationPlugin({
-            name: "reactmfe",
-            filename: "remoteEntry.js",
+            name: 'reactmfe',
+            filename: 'remoteEntry.js',
             exposes: {
-                "./MyComponent": "./src/components/MyComponent",
+                './Component': './src/App',
             },
             shared: {
-                react: { singleton: true, requiredVersion: "^19.0.0" },
-                "react-dom": { singleton: true, requiredVersion: "^19.0.0" },
+                react: { singleton: true, requiredVersion: false },
+                'react-dom': { singleton: true, requiredVersion: false },
             },
         }),
         new HtmlWebpackPlugin({
-            template: "./public/index.html",
+            template: './public/index.html',
         }),
     ],
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
 };

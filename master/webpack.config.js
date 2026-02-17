@@ -9,6 +9,7 @@ module.exports = {
     uniqueName: "shell",
     publicPath: "auto",
     scriptType: "text/javascript",
+    crossOriginLoading: "anonymous",
   },
   optimization: {
     runtimeChunk: false,
@@ -54,6 +55,8 @@ module.exports = {
           strictVersion: false,
           requiredVersion: "auto",
         },
+        "react": { singleton: true, requiredVersion: "auto" },
+        "react-dom": { singleton: true, requiredVersion: "auto" },
         ...sharedMappings.getDescriptors(),
       }),
     }),

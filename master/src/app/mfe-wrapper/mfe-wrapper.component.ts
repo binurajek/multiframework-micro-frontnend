@@ -18,6 +18,7 @@ export class MfeWrapperComponent implements OnInit, OnDestroy {
     @Input() remoteName!: string;
     @Input() exposedModule!: string;
     @Input() componentName!: string;
+    @Input() type: string = 'script';
 
     root: any;
     hasError = false;
@@ -30,15 +31,18 @@ export class MfeWrapperComponent implements OnInit, OnDestroy {
         this.remoteName = this.remoteName || data['remoteName'];
         this.exposedModule = this.exposedModule || data['exposedModule'];
         this.componentName = this.componentName || data['componentName'];
+        this.type = this.type || data['type'] || 'script';
 
         if (!this.remoteEntry) return; // Wait for inputs or handle default
 
         try {
-            const Component = await loadRemoteModule({
+            const LoadRemoteModuleOptions = {
+                type: this.type as 'module' | 'script',
                 remoteEntry: this.remoteEntry,
                 remoteName: this.remoteName,
                 exposedModule: this.exposedModule,
-            }).then(m => m[this.componentName] || m.default);
+            };
+            const Component = await loadRemoteModule(LoadRemoteModuleOptions).then(m => m[this.componentName] || m.default);
 
             this.root = ReactDOM.createRoot(this.reactContainer.nativeElement);
             this.root.render(React.createElement(Component));

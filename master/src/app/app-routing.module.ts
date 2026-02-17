@@ -30,7 +30,7 @@ const routes: Routes = [
     data: {
       remoteEntry: 'http://localhost:4202/remoteEntry.js',
       remoteName: 'reactmfe',
-      exposedModule: './MyComponent',
+      exposedModule: './Component',
       componentName: 'default'
     }
   }
