@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
@@ -7,20 +6,13 @@ function App() {
 
   return (
     <>
-      <div>
 
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Webpack + React</h1>
+      <h1>React Micro-Frontend</h1>
       <div className="card">
+        <p>This is a React MFE running on port 4202.</p>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
       <p className="read-the-docs">
         Click on the React logo to learn more

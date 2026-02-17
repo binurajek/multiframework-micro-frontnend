@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const path = require('path');
+const deps = require('./package.json').dependencies;
 
 module.exports = {
     entry: './src/index.js',
@@ -19,6 +20,7 @@ module.exports = {
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
+        hot: true,
     },
     module: {
         rules: [
@@ -26,12 +28,6 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                options: {
-                    presets: [
-                        '@babel/preset-env',
-                        ['@babel/preset-react', { runtime: 'automatic' }],
-                    ],
-                },
             },
             {
                 test: /\.css$/,
@@ -51,8 +47,15 @@ module.exports = {
                 './Component': './src/App',
             },
             shared: {
-                react: { singleton: true, requiredVersion: false },
-                'react-dom': { singleton: true, requiredVersion: false },
+                ...deps,
+                react: {
+                    singleton: true,
+                    requiredVersion: deps.react,
+                },
+                'react-dom': {
+                    singleton: true,
+                    requiredVersion: deps['react-dom'],
+                },
             },
         }),
         new HtmlWebpackPlugin({
