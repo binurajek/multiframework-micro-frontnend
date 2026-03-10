@@ -77,6 +77,12 @@ Here is the breakdown of the setup:
 
 Everything communicates via Webpack Module Federation, sharing dependencies where possible to keep the bundle size optimized and performance snappy.
 
+### A Note on Angular Builders
+
+You might notice this project uses the older `ngx-build-plus:browser` (or `@angular-devkit/build-angular:browser`) builder instead of Angular 17+'s new `:application` builder. 
+
+This is intentional! The new `:application` builder is powered by **esbuild** and completely strips away Webpack. Because Webpack Module Federation is strictly a Webpack plugin, migrating to the `:application` builder would break the federation. To keep Module Federation working seamlessly natively, we must stick to Webpack-based builders.
+
 ##  How to Run It Locally
 
 If you want to spin this up on your machine, it's pretty straightforward.
