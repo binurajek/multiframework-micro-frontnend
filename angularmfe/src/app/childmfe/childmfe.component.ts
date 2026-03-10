@@ -8,6 +8,7 @@ interface Technology {
     tags: string[];
 }
 @Component({
+    standalone: false,
     selector: 'app-childmfe',
     templateUrl: './childmfe.component.html',
     styleUrls: ['./childmfe.component.scss']

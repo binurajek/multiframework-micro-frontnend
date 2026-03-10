@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 
 @Component({
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

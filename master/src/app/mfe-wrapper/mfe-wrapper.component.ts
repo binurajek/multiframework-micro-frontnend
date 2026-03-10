@@ -5,6 +5,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 
 @Component({
+    standalone: false,
     selector: 'app-mfe-wrapper',
     template: `
       <div #reactContainer *ngIf="!hasError"></div>
