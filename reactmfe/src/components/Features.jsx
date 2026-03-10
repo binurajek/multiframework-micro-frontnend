@@ -26,9 +26,8 @@ const Features = () => {
             <div className="cards-grid">
                 {reactFeatures.map(feature => (
                     <div key={feature.id} className="service-card">
-                        <div className="card-icon">{feature.icon}</div>
                         <div className="card-content">
-                            <h3>{feature.title}</h3>
+                            <h3 style={{fontSize: '1.5rem'}}>{feature.title}</h3>
                             <p>{feature.description}</p>
                         </div>
                     </div>

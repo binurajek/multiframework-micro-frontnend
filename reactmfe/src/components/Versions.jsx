@@ -17,7 +17,7 @@ const Versions = () => {
             </header>
             <div className="cards-grid">
                 {reactVersions.map(v => (
-                    <div key={v.id} className="service-card" style={{borderTop: '4px solid #16a34a'}}>
+                    <div key={v.id} className="service-card">
                         <div className="card-content" style={{textAlign: 'center'}}>
                             <h2 style={{fontSize: '3rem', fontWeight: '900', margin: '0 0 10px 0', color: '#1e293b'}}>{v.version}</h2>
                             <p style={{fontWeight: 'bold', color: '#16a34a', marginBottom: '10px'}}>Released: {v.year}</p>
