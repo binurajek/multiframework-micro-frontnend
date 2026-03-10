@@ -1,10 +1,12 @@
-# 🚀 Multi-Framework Micro-Frontends (Angular + React)
+#  Multi-Framework Micro-Frontends (Angular + React)
 
-Welcome to my micro-frontend playground! 👋 
+![MFE Architecture Diagram](architecture.png)
+
+Welcome to my micro-frontend playground! 
 
 I built this project to experiment with running **Angular and React together** under the same roof using **Webpack Module Federation**. Having worked with different frameworks over the years, I wanted to seamlessly integrate them into a unified shell application and demonstrate how easy it is to mix and match technologies.
 
-## 🛠 Architecture Overview
+##   Architecture Overview
 
 Here is the breakdown of the setup:
 - **Host (Shell)**: Built with Angular. Orchestrates routing, navigation, and layout.
@@ -13,7 +15,7 @@ Here is the breakdown of the setup:
 
 Everything communicates via Webpack Module Federation, sharing dependencies where possible to keep the bundle size optimized and performance snappy.
 
-## 🏃‍♂️ How to Run It Locally
+##  How to Run It Locally
 
 If you want to spin this up on your machine, it's pretty straightforward.
 
@@ -40,10 +42,10 @@ This spins up:
 - The **Angular Remote** on `http://localhost:4201`
 - The **React Remote** on `http://localhost:4202`
 
-Simply open up `http://localhost:4200` and you'll see the magic working. 🪄
+Simply open up `http://localhost:4200` and you'll see the magic working. 
 
-## 💡 Why am I sharing this?
+##  Why am I sharing this?
 
 Micro-frontends are often talked about but rarely shown with practical, multi-framework examples in a single repository. I wanted to create an easy-to-understand boilerplate so folks can explore how Module Federation actually works in the wild, without getting bogged down by extreme complexity.
 
-Feel free to break things, fork it, and adapt it to your own needs! If you find it helpful or have questions, let me know on LinkedIn.
+Feel free to break things, fork it, and adapt it to your own needs! If you find it helpful or have questions, let me know on LinkedIn https://www.linkedin.com/in/binurajek/.
