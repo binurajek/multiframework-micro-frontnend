@@ -8,12 +8,12 @@ import * as ReactDOM from 'react-dom/client';
     standalone: false,
     selector: 'app-mfe-wrapper',
     template: `
-      <div #reactContainer *ngIf="!hasError"></div>
+      <div #reactContainer [hidden]="hasError"></div>
       <app-remote-error *ngIf="hasError"></app-remote-error>
     `,
 })
 export class MfeWrapperComponent implements OnInit, OnDestroy {
-    @ViewChild('reactContainer', { static: false }) reactContainer!: ElementRef;
+    @ViewChild('reactContainer', { static: true }) reactContainer!: ElementRef;
 
     @Input() remoteEntry!: string;
     @Input() remoteName!: string;

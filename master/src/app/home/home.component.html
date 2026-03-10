@@ -1,37 +1,36 @@
-<div class="space-y-8">
-    <div class="space-y-2">
-        <h2 class="text-3xl font-bold text-slate-800 tracking-tight">Multi-Framework Micro Frontend Architecture</h2>
-        <p class="text-lg text-slate-500 max-w-3xl">
+<div class="h-full flex flex-col justify-between space-y-4">
+    <div class="space-y-1">
+        <h2 class="text-2xl font-bold text-slate-800 tracking-tight">Multi-Framework Micro Frontend Architecture</h2>
+        <p class="text-sm text-slate-500">
             This dashboard demonstrates a robust <strong>Micro Frontend (MFE)</strong> implementation using
             <strong>Module Federation</strong>. It seamlessly integrates independent applications built with different
-            UI frameworks
-            into a single "Shell" environment.
+            UI frameworks into a single "Shell" environment.
         </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Angular Card -->
         <div
-            class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" class="w-32 h-32">
+            class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group relative overflow-hidden flex flex-col">
+            <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" class="w-20 h-20">
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">Angular MFE</h3>
-            <p class="text-slate-500 mb-6">
-                A native Angular micro-frontend. It shares core dependencies (like <code>&#64;angular/core</code>) with
-                the
-                Shell
-                to minimize bundle size while maintaining isolation.
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Angular MFE</h3>
+            <p class="text-slate-500 text-sm flex-1 mb-4">
+                A native Angular micro-frontend. It shares core dependencies with the Shell to minimize bundle size
+                while maintaining isolation.
             </p>
             <button [routerLink]="['/angularmfe']"
-                class="inline-flex items-center text-primary font-semibold hover:underline">
-                View Angular MFE <mat-icon class="ml-1 text-sm">arrow_forward</mat-icon>
+                class="inline-flex items-center text-primary font-semibold text-sm hover:underline">
+                View Angular MFE <mat-icon class="ml-1 text-[16px]">arrow_forward</mat-icon>
             </button>
         </div>
 
+        <!-- React Card -->
         <div
-            class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <svg viewBox="0 0 100 100" class="w-32 h-32 text-blue-500 fill-current">
+            class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group relative overflow-hidden flex flex-col">
+            <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                <svg viewBox="0 0 100 100" class="w-20 h-20 text-blue-500 fill-current">
                     <circle cx="50" cy="50" r="10" />
                     <g fill="none" stroke="currentColor" stroke-width="2">
                         <ellipse cx="50" cy="50" rx="40" ry="15" />
@@ -40,60 +39,51 @@
                     </g>
                 </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">React MFE</h3>
-            <p class="text-slate-500 mb-6">
-                A React application integrated into this Angular Shell. We use a generic
-                <code>MfeWrapperComponent</code>
-                to mount the React root and handle its lifecycle events and error states.
+            <h3 class="text-lg font-bold text-slate-800 mb-2">React MFE</h3>
+            <p class="text-slate-500 text-sm flex-1 mb-4">
+                A React application integrated into this Angular Shell safely using a generic
+                <code>MfeWrapperComponent</code> to mount its independent root.
             </p>
             <button [routerLink]="['/reactmfe']"
-                class="inline-flex items-center text-blue-600 font-semibold hover:underline">
-                View React MFE <mat-icon class="ml-1 text-sm">arrow_forward</mat-icon>
+                class="inline-flex items-center text-blue-600 font-semibold text-sm hover:underline">
+                View React MFE <mat-icon class="ml-1 text-[16px]">arrow_forward</mat-icon>
             </button>
         </div>
     </div>
 
-    <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-        <h3 class="text-xl font-bold text-slate-800 mb-4">How It Works</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex-1 flex flex-col justify-center">
+        <h3 class="text-lg font-bold text-slate-800 mb-4">How It Works</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
             <div class="space-y-4">
                 <div>
-                    <h4 class="font-semibold text-slate-700">1. Module Federation</h4>
-                    <p class="text-slate-500">
-                        Webpack's Module Federation Plugin allows us to load remote modules (Remote Entry files)
-                        at runtime. The Shell doesn't need to know the code at build time.
+                    <h4 class="font-semibold text-slate-700 text-sm">1. Module Federation</h4>
+                    <p class="text-slate-500 text-xs mt-1">
+                        Webpack's MF Plugin allows sharing and loading remote entry files at runtime dynamically.
                     </p>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-slate-700">2. MFE Wrapper Strategy</h4>
-                    <p class="text-slate-500">
-                        For non-Angular remotes (like React or Vue), we use a wrapper component that:
-                        <br>• Loads the remote module dynamically.
-                        <br>• Creates a host element in the DOM.
-                        <br>• Bootstraps the remote framework (e.g., <code>ReactDOM.createRoot</code>).
-                        <br>• Cleanly unmounts it on destruction to prevent memory leaks.
+                    <h4 class="font-semibold text-slate-700 text-sm">2. MFE Wrapper Strategy</h4>
+                    <p class="text-slate-500 text-xs mt-1">
+                        A custom element safely bootstraps external libraries (<code>ReactDOM.createRoot</code>)
+                        internally without leaks.
                     </p>
                 </div>
             </div>
             <div class="space-y-4">
                 <div>
-                    <h4 class="font-semibold text-slate-700">3. Shared Dependencies</h4>
-                    <p class="text-slate-500">
-                        We configure <code>shared</code> libraries in <code>webpack.config.js</code>.
-                        Compatible versions are shared (singleton), preventing us from loading Angular/React multiple
-                        times
-                        if possible, or handling version mismatches gracefully.
+                    <h4 class="font-semibold text-slate-700 text-sm">3. Shared Dependencies</h4>
+                    <p class="text-slate-500 text-xs mt-1">
+                        Libraries like RxJS/Angular are defined as singletons to stop duplicate downloads between shell
+                        and guests.
                     </p>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-slate-700">4. Fallback & Error Handling</h4>
-                    <p class="text-slate-500">
-                        If a remote is down, our global error handling middleware intercepts the failure
-                        and displays a user-friendly "Retry" interface instead of crashing the application.
+                    <h4 class="font-semibold text-slate-700 text-sm">4. Global Error Handling</h4>
+                    <p class="text-slate-500 text-xs mt-1">
+                        Fault-tolerant middlewares display "Retry" components if any single remote fails resolving.
                     </p>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

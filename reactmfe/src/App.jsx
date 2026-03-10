@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link, BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, BrowserRouter, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import Features from './components/Features';
 import Versions from './components/Versions';
 import './App.css';
@@ -48,9 +48,10 @@ function App() {
         <BrowserRouter basename={basename}>
           <NavigationTabs />
           <Routes>
-            <Route path="/" element={<Versions />} />
+            <Route path="/" element={<Navigate to="/versions" replace />} />
             <Route path="/versions" element={<Versions />} />
             <Route path="/features" element={<Features />} />
+            <Route path="*" element={<Navigate to="/versions" replace />} />
           </Routes>
         </BrowserRouter>
       </div>
