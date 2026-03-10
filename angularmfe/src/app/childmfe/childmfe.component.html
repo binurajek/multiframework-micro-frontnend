@@ -1,38 +1,21 @@
-<div class="space-y-10 animate-in fade-in slide-in-from-top-4 duration-700 font-outfit">
-    <!-- Interactive Header -->
-    <header class="mb-10 text-center">
-        <h2 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Angular Modern Features</h2>
-        <p class="text-slate-500 text-lg">Exploring the latest innovations in the Angular ecosystem</p>
-    </header>
-    <!-- Technology Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <mat-card *ngFor="let tech of features"
-            class="!rounded-2xl !p-0 border-0 shadow-sm hover:shadow-lg transition-all duration-300 group overflow-hidden bg-white/60 backdrop-blur-sm border-white/20">
-            <div class="p-4 h-full flex flex-col relative">
-                <!-- Background Accent -->
-                <div class="absolute -right-8 -top-8 w-24 h-24 rounded-full blur-xl opacity-10 transition-transform duration-700 group-hover:scale-150"
-                    [ngClass]="tech.color"></div>
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-lg shadow-sm bg-white group-hover:scale-110 transition-all duration-300"
-                            [ngClass]="tech.color">
-                            {{tech.icon}}
-                        </div>
-                        <h3 class="text-sm font-bold text-slate-800 tracking-tight leading-tight">{{tech.name}}</h3>
-                    </div>
-                    <div class="px-1.5 py-0.5 bg-white/50 rounded border border-slate-100/50 backdrop-blur-sm">
-                        <span class="text-[8px] font-bold text-slate-500">{{tech.version}}</span>
-                    </div>
-                </div>
-                <!-- Removed separate title div -->
-                <p class="text-slate-500 text-[11px] leading-snug mb-4 flex-1">{{tech.description}}</p>
-                <div class="flex flex-wrap gap-1.5 mt-auto">
-                    <span *ngFor="let tag of tech.tags"
-                        class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 text-[8px] font-bold uppercase tracking-wide border border-slate-200/50">
-                        {{tag}}
-                    </span>
-                </div>
-            </div>
-        </mat-card>
+<div class="h-full w-full flex flex-col p-4 bg-slate-50">
+    <div class="flex-1 w-full max-w-7xl mx-auto space-y-6 flex flex-col items-center">
+
+        <nav class="flex gap-4 mb-6">
+
+            <a routerLink="versions" routerLinkActive="!bg-green-500 !text-white !font-bold !border-transparent !shadow-md"
+               class="px-6 py-2 rounded-lg bg-white text-slate-500 font-semibold border border-slate-200 hover:bg-slate-50 transition-all duration-200 no-underline cursor-pointer">
+               Versions
+            </a>
+            <a routerLink="features" routerLinkActive="!bg-green-500 !text-white !font-bold !border-transparent !shadow-md"
+               class="px-6 py-2 rounded-lg bg-white text-slate-500 font-semibold border border-slate-200 hover:bg-slate-50 transition-all duration-200 no-underline cursor-pointer">
+               Features
+            </a>
+        </nav>
+
+
+        <div class="w-full">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>

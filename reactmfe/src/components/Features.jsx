@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
 
-const Dashboard = () => {
+const Features = () => {
     const reactFeatures = [
         { id: 1, title: 'Server Components', description: 'Zero-bundle-size components that run only on the server.', icon: '🖥️' },
         { id: 2, title: 'Server Actions', description: 'Seamlessly call server-side functions from client components.', icon: '⚡' },
@@ -14,19 +14,7 @@ const Dashboard = () => {
         { id: 9, title: 'Form Actions', description: 'Native support for standard HTML form action attributes.', icon: '📥' },
         { id: 10, title: 'Transition API', description: 'Keep UI responsive during heavy state updates with useTransition.', icon: '⏳' },
         { id: 11, title: 'Automatic Batching', description: 'Group multiple state updates into a single re-render.', icon: '🗂️' },
-        { id: 12, title: 'Concurrent Rendering', description: 'Interruptible rendering for smoother user experiences.', icon: '🚄' },
-        { id: 13, title: 'Suspense', description: 'Declaratively wait for anything to load, not just code.', icon: '⏳' },
-        { id: 14, title: 'Strict Mode 2.0', description: 'Enhanced checks for side effects and memory leaks.', icon: '🛡️' },
-        { id: 15, title: 'Custom Elements', description: 'Full support for Web Components and custom elements.', icon: '🧩' },
-        { id: 16, title: 'Error Boundaries', description: 'Better error recovery and fallback UI handling.', icon: '🩹' },
-        { id: 17, title: 'Portals', description: 'Render children into a different part of the DOM tree.', icon: '�' },
-        { id: 18, title: 'Fragments', description: 'Group elements without adding extra nodes to the DOM.', icon: '⚛️' },
-        { id: 19, title: 'Context API', description: 'Improved state sharing across the component tree.', icon: '🌳' },
-        { id: 20, title: 'Hydration Error Fixes', description: 'Much better error messaging for SSR mismatches.', icon: '�️' },
-        { id: 21, title: 'Lazy Loading', description: 'React.lazy for code splitting and dynamic imports.', icon: '�' },
-        { id: 22, title: 'Profiler API', description: 'Measure rendering performance of React trees.', icon: '�' },
-        { id: 23, title: 'Memoization', description: 'useMemo and useCallback for fine-grained control.', icon: '🧠' },
-        { id: 24, title: 'Compiler (Upcoming)', description: 'Automatic memoization with the new React Compiler.', icon: '🦾' },
+        { id: 12, title: 'Concurrent Rendering', description: 'Interruptible rendering for smoother user experiences.', icon: '🚄' }
     ];
 
     return (
@@ -50,4 +38,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default Features;

@@ -33,6 +33,16 @@ const routes: Routes = [
       exposedModule: './Component',
       componentName: 'default'
     }
+  },
+  {
+    path: 'reactmfe/:any',
+    component: MfeWrapperComponent,
+    data: {
+      remoteEntry: 'http://localhost:4202/remoteEntry.js',
+      remoteName: 'reactmfe',
+      exposedModule: './Component',
+      componentName: 'default'
+    }
   }
 ];
 @NgModule({

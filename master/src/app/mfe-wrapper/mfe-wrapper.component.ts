@@ -34,7 +34,7 @@ export class MfeWrapperComponent implements OnInit, OnDestroy {
         this.componentName = this.componentName || data['componentName'];
         this.type = this.type || data['type'] || 'script';
 
-        if (!this.remoteEntry) return; // Wait for inputs or handle default
+        if (!this.remoteEntry) return;
 
         try {
             const LoadRemoteModuleOptions = {
