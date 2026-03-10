@@ -6,7 +6,6 @@ import './App.css';
 
 const NavigationTabs = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const activeStyle = {
       padding: '10px 24px',
       background: '#16a34a',

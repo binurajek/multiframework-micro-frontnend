@@ -1,6 +1,68 @@
 #  Multi-Framework Micro-Frontends (Angular + React)
 
-![MFE Architecture Diagram](architecture.png)
+![MFE Architecture Diagram](mfe-architecture.png)
+
+```mermaid
+graph TD
+    %% Styling
+    classDef shell fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff,font-weight:bold
+    classDef router fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#1e293b
+    classDef mfeFrame fill:none,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5
+    classDef angMFE fill:#f97316,stroke:#c2410c,stroke-width:2px,color:#fff,font-weight:bold
+    classDef reactMFE fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff,font-weight:bold
+    classDef angRoute fill:#fff7ed,stroke:#ea580c,stroke-width:1px,color:#1e293b
+    classDef reactRoute fill:#f0fdf4,stroke:#059669,stroke-width:1px,color:#1e293b
+
+    subgraph Host["MAIN ANGULAR HOST SHELL"]
+        direction TB
+        subgraph ShellRouter["SHELL ROUTER (Global Routing)"]
+            direction LR
+            A_Route["/angularmfe/**"]:::router
+            R_Route["/reactmfe/**"]:::router
+        end
+    end
+
+    subgraph Hierarchy["ROUTING & COMPONENT HIERARCHY"]
+        direction LR
+
+        subgraph AngBlock[" "]
+            direction TB
+            AngMFE["ANGULAR MFE"]:::angMFE
+            
+            subgraph AngInternal["ANGULAR MFE INTERNAL ROUTER"]
+                direction TB
+                AngRoot["/angularmfe/ (Angular MFE root)"]:::angRoute
+                AngVersions["/angularmfe/versions (Versions Comp)"]:::angRoute
+                AngFeatures["/angularmfe/features (Features Comp)"]:::angRoute
+                
+                AngRoot --> AngVersions
+                AngRoot --> AngFeatures
+            end
+            AngMFE --> AngInternal
+        end
+
+        subgraph ReactBlock[" "]
+            direction TB
+            ReactMFE["REACT MFE"]:::reactMFE
+            
+            subgraph ReactInternal["REACT MFE INTERNAL ROUTER"]
+                direction TB
+                ReactRoot["/reactmfe/ (React MFE root)"]:::reactRoute
+                ReactVersions["/reactmfe/versions (Versions Comp)"]:::reactRoute
+                ReactFeatures["/reactmfe/features (Features Comp)"]:::reactRoute
+                
+                ReactRoot --> ReactVersions
+                ReactRoot --> ReactFeatures
+            end
+            ReactMFE --> ReactInternal
+        end
+    end
+
+    A_Route ==>|"Webpack Module Federation"| AngMFE
+    R_Route ==>|"Webpack Module Federation"| ReactMFE
+
+    class Hierarchy mfeFrame
+```
 
 Welcome to my micro-frontend playground! 
 
